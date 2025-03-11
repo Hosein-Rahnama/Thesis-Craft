@@ -1,0 +1,61 @@
+%------------------------ Thesis ------------------------
+
+\documentclass[oneside, 11pt]{book}
+
+\input{styles/packages.tex}
+\input{styles/common.tex}
+\input{styles/math.tex}
+\input{styles/alg.tex}
+\input{styles/xepersian.tex}
+
+
+\begin{document}
+
+% Front Cover
+\pagestyle{empty}
+\include{body/front/info}
+\include{body/front/title}
+
+% Comment to remove each of the following front pages
+\include{body/front/signatures}
+\include{body/front/declaration}
+
+\pagestyle{plain}
+\pagenumbering{tartibi}
+
+\include{body/front/acknowledge}
+\include{body/front/abstract}
+
+% List of Contents, Tables, Figures and Algorithms
+\tableofcontents \newpage
+\listoftables \newpage
+\listoffigures \newpage
+\listofalgorithms \newpage
+
+% Chapters
+\pagenumbering{arabic}
+
+\include{body/chapter-1/introduction}
+\include{body/chapter-2/preliminaries}
+\include{body/chapter-3/literature}
+\include{body/chapter-4/results}
+\include{body/chapter-5/conclusions}
+
+% Appendices
+\begin{appendix}
+\include{body/appendices/appendix}
+\end{appendix}
+
+% Bibliography
+\include{body/bibliography/refs}
+
+% Dictionary
+\include{body/back/dictionary}
+
+% Back Cover
+\pagestyle{empty}
+\include{body/back/info-eng}
+\include{body/back/abstract-eng}
+\include{body/back/title-eng}
+
+\end{document}

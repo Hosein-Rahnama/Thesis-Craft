@@ -1,0 +1,63 @@
+%------------------------ Mathematics ------------------------
+
+% Commands
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\seq}[1]{\left< #1 \right>}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\card}[1]{\left|{#1}\right|}
+\newcommand{\setcomp}[1]{\overline{#1}}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+\newcommand{\iequiv}[1]{\,\overset{#1}{\equiv}\,}
+\newcommand{\imod}[1]{\allowbreak\mkern5mu(#1\,\,\text{پیمانه‌ی})}
+\newcommand{\eps}{\varepsilon}
+
+% Environments
+\theoremstyle{definition}
+\newtheorem{thm}{گزاره}[chapter]
+\newtheorem{lem}[thm]{لم}
+\newtheorem{cor}[thm]{نتیجه}
+\newtheorem{prb}{مساله}[chapter]
+\newtheorem{defn}{تعریف}[chapter]
+\newtheorem{exmp}{مثال}[chapter]
+\newtheorem{asmp}{فرض}
+\newtheorem*{rem}{توجه}
+\newenvironment{prf}{
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+	\renewcommand{\proofname}{\bf برهان}
+	\proof}{
+	\endproof
+}
+
+% Pesian Names for Referencing
+\crefname{thm}{گزاره}{گزاره‌ها}
+\crefname{lem}{لم}{لم‌ها}
+\crefname{cor}{نتیجه}{نتایج}
+\crefname{prb}{مساله}{مساله‌ها}
+\crefname{defn}{تعریف}{تعریف‌ها}
+\crefname{exmp}{مثال}{مثال‌ها}
+\crefname{asmp}{فرض}{فرض‌ها}
+
+% Colors of Environments
+\newcommand{\setcolorbox}[2]{
+	\tcolorboxenvironment{#1}{
+		breakable,
+		colback=#2,
+		boxrule=0pt,
+		boxsep=1pt,
+		left=2pt, right=2pt, top=3pt, bottom=3pt,
+		oversize=2pt,
+		sharp corners
+	}	
+}
+
+\setcolorbox{thm}{myBlue}
+\setcolorbox{lem}{myBlue}
+\setcolorbox{cor}{myBlue}
+\setcolorbox{prb}{myOrange}
+\setcolorbox{defn}{myYellow}
+\setcolorbox{asmp}{myRed}
+
+% Dispaly Breaks
+\allowdisplaybreaks

@@ -1,0 +1,96 @@
+%------------------------ XePersian ------------------------
+
+% Fonts
+\settextfont[
+	Scale=1,
+	Extension=.ttf, 
+	Path=fonts/persian-modern/,
+	BoldFont=persian-modern-bold,
+	ItalicFont=persian-modern-italic,
+	BoldItalicFont=persian-modern-bold-italic,
+]{persian-modern-regular}
+
+\setdigitfont[
+	Scale=1,
+	Extension=.ttf, 
+	Path=fonts/persian-modern/,
+	BoldFont=persian-modern-bold,
+	ItalicFont=persian-modern-italic,
+	BoldItalicFont=persian-modern-bold-italic,
+]{persian-modern-regular}
+
+\setlatintextfont[
+	Scale=1,
+	Extension=.otf,
+	Path=fonts/tex-gyre-heros/,
+	BoldFont=tex-gyre-heros-bold,
+	ItalicFont=tex-gyre-heros-italic,
+	BoldItalicFont=tex-gyre-heros-bold-italic,
+]{tex-gyre-heros-regular}
+
+% Seperation Mark
+\SepMark{.}
+
+% Put figures side by side, while preserving the order of their
+% appearance in the list of figures
+
+% Helper command for individual figures
+\newcommand{\figbox}[3]{
+\vbox{
+	\hsize=0.5\textwidth
+	\centering
+	\includegraphics[width=#2]{#1}
+	#3
+}
+}
+
+% Figures seperator
+\newcommand{\sep}{\hskip - \textwidth}
+
+% Define the environment for placing figures side by side
+\newenvironment{rowfig}[1]{
+\begin{figure}[#1]
+	\vbox \bgroup
+		\hbox to \textwidth \bgroup
+			\hskip 0.5\textwidth
+			\hfill
+}{
+			\hfill
+			\hskip 0.5\textwidth
+		\egroup
+	\egroup
+\end{figure}
+}
+
+% Make LTRfoonote compatible with tcolorbox environment
+\makeatletter
+\def\tcb@restore@footnote{%
+    \def\@mpfn{footnote}%
+    \def\thempfn{\arabic{footnote}}%
+    \let\@footnotetext\tcb@footnote@collect
+    \let\@LTRfootnotetext\tcb@LTRfootnote@collect
+}
+\long\def\tcb@footnote@collect#1{%
+    \expandafter\gappto\expandafter\tcb@footnote@acc\expandafter{%
+        \expandafter\footnotetext\expandafter[\@thefnmark]{#1}%
+    }%
+}
+\long\def\tcb@LTRfootnote@collect#1{%
+    \expandafter\gappto\expandafter\tcb@footnote@acc\expandafter{%
+        \expandafter\LTRfootnotetext\expandafter[\@thefnmark]{#1}%
+    }%
+}
+\def\tcb@footnote@use{%
+    \tcb@footnote@acc
+    \global\let\tcb@footnote@acc\@empty
+}
+\global\let\tcb@footnote@acc\@empty
+\tcbset{
+    every box/.style={%
+        before upper pre=\tcb@restore@footnote
+    },
+    every box on layer 1/.append style={%
+        after app=\tcb@footnote@use
+    }%
+}
+\makeatother

@@ -1,0 +1,52 @@
+%------------------------ Algorithm ------------------------
+
+% Commands
+\algrenewcommand{\algorithmicindent}{2.5em}
+\algnewcommand{\LineComment}[1]{
+	\State {\bf\color{ForestGreen} $*$ #1}
+}
+\algnewcommand{\AlgInput}{
+	\Statex \hspace*{-1cm} \textbf{ورودی}:
+}
+\algnewcommand{\AlgOutput}{
+	\Statex \hspace*{-1cm} \textbf{خروجی}:
+}
+
+% Persian Names for Keywords
+\algrenewcommand{\algorithmicfor}{{\bf\color{blue} به ازای}}
+\algrenewcommand{\algorithmicwhile}{{\bf\color{blue} تا وقتی}}
+\algrenewcommand{\algorithmicdo}{{\bf\color{blue} انجام بده}}
+\algrenewcommand{\algorithmicif}{{\bf\color{blue} اگر}}
+\algrenewcommand{\algorithmicthen}{{\bf\color{blue} آن‌گاه}}
+\algrenewcommand{\algorithmicelse}{{\bf\color{blue} وگرنه}}
+\algrenewcommand{\algorithmicprocedure}{{\bf\color{blue} تابع}}
+\algrenewcommand{\algorithmicreturn}{{\bf\color{blue} برگردان}}
+
+% Names for End of Scopes
+\makeatletter
+\ifthenelse{\equal{\ALG@noend}{f}}{
+	\algrenewtext{EndFor}{{\bf\color{blue} پایان حلقه}}
+	\algrenewtext{EndWhile}{{\bf\color{blue} پایان حلقه}}
+	\algrenewtext{EndIf}{{\bf\color{blue} پایان اگر}}
+	\algrenewtext{EndProcedure}{{\bf\color{blue} پایان تابع}}
+}{
+}
+\makeatother
+
+% Environments
+\newenvironment{alg}[3]{
+\begin{algorithm}[#1]
+	\caption{#2}
+	\label{#3}
+	\vspace*{-0.3cm}
+\begin{tcolorbox}[colback=myGray, sharp corners, boxrule=0pt, top=2pt, bottom=2pt]
+\setstretch{1.25}
+\begin{algorithmic}[1]}{
+\end{algorithmic}
+\end{tcolorbox}
+	\vspace*{-0.3cm}
+\end{algorithm}
+}
+
+% Pesian Name for Referencing
+\crefname{alg}{الگوریتم}{الگوریتم‌ها}

@@ -1,0 +1,69 @@
+%------------------------ Common ------------------------
+
+% Default Path to Figures
+\graphicspath{{figs/}}
+
+% Page Layout
+\newgeometry{top=2cm, right=2.25cm, left=2cm, bottom=2cm}
+
+% Line Spacing of Body Text
+\setstretch{1.25}
+
+% Item Spacing
+\setlist{nosep, noitemsep, leftmargin=*}
+
+% Bullet Item Shape
+\renewcommand{\labelitemi}{$\small\bullet$}
+
+% Spacing Around Float Objects such as Tables and Figures
+\setlength{\intextsep}{10pt}
+
+% Titles for List of Tables and Figures
+\AtBeginDocument{
+	\renewcommand{\listtablename}{فهرست جدول‌ها}
+	\renewcommand{\listfigurename}{فهرست شکل‌ها}
+}
+
+% Pesian Names for Referencing Sections, Tables and Figures
+\crefname{section}{بخش}{Section}
+\crefname{table}{جدول}{Section}
+\crefname{figure}{شکل}{Section}
+
+% Reset Foonote Counter per Page
+\zmakeperpage{footnote}
+
+% Specific Colors
+\colorlet{myBlue}{blue!5!white}
+\colorlet{myYellow}{yellow!15!white}
+\colorlet{myRed}{red!10!white}
+\colorlet{myGray}{gray!10!white}
+\colorlet{myOrange}{orange!15!white}
+\colorlet{myGreen}{green!10!white}
+
+% Commands
+\newcommand{\code}[1]{\lr{\tt #1}}
+
+% Dictionary
+\newcommand{\dicalphabet}[1]{
+\begin{minipage}{\columnwidth}
+	\centerline{\noindent\textbf{\large #1 }}
+	\vspace{.5em}
+\end{minipage}
+\nopagebreak[4]
+}
+
+\newcommand{\dic}[2]{\noindent #2 \dotfill \lr{#1} \\}
+
+% Line Spacing of Bibliography Section
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+	\OLDthebibliography{#1}
+	\setstretch{1}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{5pt}
+}
+
+% Title of Bibliography Section
+\AtBeginDocument{
+	\renewcommand{\bibname}{مراجع}
+}

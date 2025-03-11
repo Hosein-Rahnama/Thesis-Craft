@@ -1,0 +1,14 @@
+# Core latex auxiliary files
+*.aux
+*.bbl
+*.blg
+*.loa
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.xdv
+*.fdb_latexmk
