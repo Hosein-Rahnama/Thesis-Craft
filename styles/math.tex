@@ -30,6 +30,10 @@
 	\endproof
 }
 
+% Handle referencing of cleveref for environments with the same counter
+\AddToHook{env/lem/begin}{\crefalias{thm}{lem}}
+\AddToHook{env/cor/begin}{\crefalias{thm}{cor}}
+
 % Pesian Names for Referencing
 \crefname{thm}{گزاره}{گزاره‌ها}
 \crefname{lem}{لم}{لم‌ها}
