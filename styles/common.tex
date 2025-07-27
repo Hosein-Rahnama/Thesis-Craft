@@ -55,15 +55,18 @@
 \newcommand{\dic}[2]{\noindent #2 \dotfill \lr{#1} \\}
 
 % Line Spacing of Bibliography Section
-\let\OLDthebibliography\thebibliography
-\renewcommand\thebibliography[1]{
-	\OLDthebibliography{#1}
-	\setstretch{1}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{5pt}
+\AtBeginDocument{
+	\let\OLDthebibliography\thebibliography
+	\renewcommand\thebibliography[1]{
+		\OLDthebibliography{#1}
+		\setstretch{1}
+		\setlength{\parskip}{1pt}
+		\setlength{\itemsep}{3pt}
+	}
 }
 
 % Title of Bibliography Section
 \AtBeginDocument{
 	\renewcommand{\bibname}{مراجع}
 }
+
